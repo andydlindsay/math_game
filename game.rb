@@ -9,11 +9,7 @@ class Game
     end
 
     def switch_player
-        if @current_player == @players[0]
-            @current_player = @players[1]
-        else
-            @current_player = @players[0]
-        end
+        @current_player = @current_player == @players[0] ? @players[1] : @players[0]
     end
 
     def game_over?

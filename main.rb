@@ -9,16 +9,16 @@ players = [
 
 game = Game.new(players)
 
-while (not game.game_over) == true
+while (not game.game_over?) == true
     puts "\n----- NEW TURN -----"
 
     # Pose Question
     question = Question.new
-    question.pose_question(game.current_player.name)
+    puts "#{game.current_player.name}: #{question.question}" 
 
     # Check Answer
     answer = gets.chomp
-    if question.check_answer?(answer)
+    if question.check_answer? answer 
         puts "#{game.current_player.name}: YES! You are correct."
     else
         puts "#{game.current_player.name}: Seriously? No!"
@@ -28,16 +28,11 @@ while (not game.game_over) == true
     # Switch Player
     game.switch_player
 
-    # Check for game over
-    if game.game_over?
-        puts "\n----- GAME OVER -----"
-        puts "#{game.current_player.name} wins with a score of #{game.current_player.score}/3"
-        puts "Good bye!\n"
-    end
-
     # Output Current Scores
-    if not game.game_over
-        game.display_score
-    end
+    game.display_score
 
 end
+
+puts "\n----- GAME OVER -----"
+puts "#{game.current_player.name} wins with a score of #{game.current_player.score}/3"
+puts "Good bye!"

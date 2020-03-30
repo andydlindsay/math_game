@@ -9,7 +9,7 @@ players = [
 
 game = Game.new(players)
 
-while (not game.game_over?) == true
+while (!game.game_over?)
     puts "\n----- NEW TURN -----"
 
     # Pose Question
@@ -30,7 +30,6 @@ while (not game.game_over?) == true
 
     # Output Current Scores
     game.display_score
-
 end
 
 puts "\n----- GAME OVER -----"
